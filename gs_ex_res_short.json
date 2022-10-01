@@ -1,0 +1,28 @@
+{
+  "range": "EngineRoom!F4:H383",
+  "majorDimension": "ROWS",
+  "values": [
+    [
+      "Crystal Palace",
+      "Arsenal",
+      "0-2"
+    ],
+    [
+      "Fulham",
+      "Liverpool",
+      "2-2"
+    ],
+    [
+      "Leicester",
+      "Aston Villa"
+    ],
+    [
+      "Liverpool",
+      "Wolves"
+    ],
+    [
+      "Man Utd",
+      "Bournemouth"
+    ]
+  ]
+}
