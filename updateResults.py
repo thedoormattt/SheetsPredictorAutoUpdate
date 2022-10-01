@@ -63,7 +63,7 @@ def post_updated_results(sheet_range: str, updated_results: list):
     res = service.spreadsheets().values()\
         .update(spreadsheetId=spreadsheet_id, body=data, range=sheet_range, valueInputOption="USER_ENTERED").execute()
 
-    print(res)
+    logging.info(res)
 
 
 # For testing against a json file
