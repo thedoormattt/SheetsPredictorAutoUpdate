@@ -8,8 +8,6 @@ import os
 import logging
 import sys
 
-logging.basicConfig(filename="autoUpdate.log", format='%(asctime)s - %(levelname)s: %(message)s', level=logging.INFO)
-
 
 # Extract absolute path of credentials. Needed because cron by default executes script in different location
 def extract_credential_path():
@@ -118,12 +116,16 @@ def update_scores(results, matches):
 
 
 if __name__ == "__main__":
-    range_name_test: str = "AutoUpdateTest!D3:F382"
+    # range_name_test: str = "AutoUpdateTest!D3:F382"
     range_name: str = "EngineRoom!F4:H383"
+
+    logging.basicConfig(filename=extract_credential_path() + "predictorAutoUpdate.log",
+                        format='%(asctime)s - %(levelname)s: %(message)s',
+                        level=logging.INFO)
 
     # Get results and matches to be updated
     fd_res_live_test = get_results()
-    gs_res_live_test = get_sheets_results(range_name_test, )
+    gs_res_live_test = get_sheets_results(range_name)
 
     # Update Google Sheets object with the latest scores
     updated = update_scores(fd_res_live_test, gs_res_live_test)
@@ -131,4 +133,4 @@ if __name__ == "__main__":
     # Post updated object to Google Sheets.
     #   This will appear to update the entire 380 game list, but if there are no scores available it will only 'update'
     #   the team names
-    post_updated_results(range_name_test, updated)
+    post_updated_results(range_name, updated)
